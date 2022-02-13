@@ -1,11 +1,14 @@
 pipeline {
     agent {
-        docker { image 'mysql-k8s-crud:1.0' }
+        docker {
+            image 'maven:3.8.1-adoptopenjdk-11'
+            args '-v $HOME/.m2:/root/.m2'
+        }
     }
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
-                sh 'mvn install'
+                sh 'mvn -B'
             }
         }
     }
