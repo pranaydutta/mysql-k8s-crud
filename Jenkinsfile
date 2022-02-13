@@ -1,3 +1,6 @@
+pipeline {
+    agent any
+
 node {
     def app
 
@@ -49,4 +52,5 @@ node {
             app.push("latest")
         }
     }
+}
 }
