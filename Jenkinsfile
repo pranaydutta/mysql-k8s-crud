@@ -4,7 +4,7 @@ pipeline {
     agent any
 
 
-    def app
+
 
     tools {
         maven 'Maven 3.3.9'
