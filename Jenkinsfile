@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("brandonjones085/test")
+       app = docker.build("pranay8032/springboot-crud-k8s:2.0")
     }
 
     stage('Test image') {
