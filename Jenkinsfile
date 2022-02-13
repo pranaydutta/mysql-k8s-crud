@@ -1,7 +1,7 @@
 pipeline {
     agent any
 
-node {
+
     def app
 
     tools {
@@ -54,4 +54,4 @@ node {
     }
 }
 }
-}
+
