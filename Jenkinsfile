@@ -8,7 +8,7 @@ node {
     }
 
     stage('Build image') {
-        sh 'mvn clean install'
+        
        app = docker.build("pranay8032/springboot-crud-k8s:2.0")
     }
 
