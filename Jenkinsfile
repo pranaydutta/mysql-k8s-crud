@@ -1,15 +1,5 @@
- def app
-
 pipeline {
     agent any
-
-
-
-
-    tools {
-        maven 'Maven 3.3.9'
-        jdk 'jdk8'
-    }
    stages { 
      stage('Clone repository') {
        steps {
@@ -35,36 +25,7 @@ pipeline {
     
    
 
-    stage('Build image') {
-     
-      steps {
-       step{
-       app = docker.build("pranay8032/springboot-crud-k8s:2.0")
-       }
-      }
-    }
+   
 
-    stage('Test image') {
-   steps {
- step{
-        app.inside {
-            sh 'echo "Tests passed"'
-        }
-        }
-   }
-    }
-
-    stage('Push image') {
-     steps{
-      step{
-        docker.withRegistry('https://registry.hub.docker.com', 'docker_hub') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-        }
-      }
-     }
-        
-    }
-}
 }
 
