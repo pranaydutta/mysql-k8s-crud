@@ -42,7 +42,7 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 	post {
 always {
 	echo "pipeline finished"
-	bat ./performCleanUp.bat
+	//bat ./performCleanUp.bat
 }
 }
    
