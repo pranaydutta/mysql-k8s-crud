@@ -60,8 +60,8 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 		   withCredentials([string(credentialsId: 'muskan-hub', variable: 'muskanhub')]) {
 
 			  
-   			bat 'docker login -u muskan0802 -p muskan0802'
-			bat 'docker push muskan0802/springboot-crud-k8s:3.0'
+   			bat 'docker login -u pranay8032 -p pranay8032'
+			bat 'docker push pranay8032/springboot-crud-k8s:3.0'
 		    }
 			    
 }
