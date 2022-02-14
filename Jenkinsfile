@@ -1,10 +1,19 @@
 def app
 pipeline {
     agent any
-	options { buildDiscarder(logRotator(numToKeepStr: '5')) }
+	options { buildDiscarder(logRotator(numToKeepStr: '5')),
+		retry(3)
+		}
+	
+	parameters {
+string(name: 'user', defaultValue: 'Muskan', description: 'A user that triggers the pipeline')
+}
+
     stages{
    stage ('Initialize') {
             steps {
+		    
+		    echo "Pipeline triggered by ${params.USER}"
                 bat '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
