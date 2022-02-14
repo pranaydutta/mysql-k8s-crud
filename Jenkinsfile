@@ -2,7 +2,7 @@ pipeline {
     agent any
 	
 	options { buildDiscarder(logRotator(numToKeepStr: '5'))
-		retry(1)
+		//retry(1)
 		}
 	
 	parameters {
@@ -43,10 +43,12 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 	
 	stage('Build_Image')
 	{
-		agent { dockerfile true }
+		//agent { dockerfile true }
 		steps{
+			script{
 			
-			bat 'docker images'
+			bat 'docker build -t springboot-crud-k8s:3.0 .'
+			}
 		}
 	}
 	    
