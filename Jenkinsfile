@@ -42,7 +42,7 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 	stage('push')
 	{
 		agent{
-			docker{ dockerfile true }
+			dockerfile true 
 		}
 		steps{
 			
