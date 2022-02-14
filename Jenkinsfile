@@ -55,6 +55,7 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 	    
 	    stage('Push_Image')
 	    {
+		    steps{
 		    script{
 		    withCredentials([string(credentialsId: 'docker-hub-cred', variable: 'docker-hub-cred')]) {
    			bat 'docker login -u pranay8032 -p $(docker-hub-cred)'
@@ -62,6 +63,7 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 		    }
 			    
 }
+		    }
 	    }
 	    
     }
