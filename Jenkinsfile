@@ -1,6 +1,6 @@
-def app
 pipeline {
     agent any
+	
 	options { buildDiscarder(logRotator(numToKeepStr: '5'))
 		retry(3)
 		}
@@ -38,6 +38,20 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
          
     
     }
+	
+	stage('push')
+	{
+		agent{
+			docker{
+				image 'gradle:6.7-jdk11'
+				reuseNode true
+			}
+		}
+		steps{
+			
+			bat 'gradle --version'
+		}
+	}
 	
 	post {
 always {
