@@ -30,9 +30,11 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 			string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
 		}
 	}
+	    withEnv(['MAVEN_OPTS=-xMS256M -xMX512M -XX:MaxPermSize=512m']){
             steps {
                 bat 'mvn install' 
             }
+	    }
     }
         
          
