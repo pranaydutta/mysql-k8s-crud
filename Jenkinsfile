@@ -6,7 +6,7 @@ pipeline {
 		}
 	
 	parameters {
-string(name: 'user', defaultValue: 'Muskan', description: 'A user that triggers the pipeline')
+string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers the pipeline')
 }
 
     stages{
