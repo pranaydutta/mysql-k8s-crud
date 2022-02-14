@@ -57,8 +57,9 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 	    {
 		    steps{
 		    script{
-		    withCredentials([string(credentialsId: 'docker-hub-cred', variable: 'docker-hub-cred')]) {
-   			bat 'docker login -u pranay8032 -p $(docker-hub-cred)'
+		    withCredentials([string(credentialsId: 'docker-hub-cred', variable: 'pranay8032dockercred')]) {
+			    bat echo "$(pranay8032dockercred)"
+   			bat 'docker login -u pranay8032 -p $(pranay8032dockercred)'
 			bat 'docker push pranay8032/springboot-crud-k8s:3.0'
 		    }
 			    
