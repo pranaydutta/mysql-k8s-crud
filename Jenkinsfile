@@ -30,13 +30,7 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 			string(name:'username', defaultValue: 'user', description: 'Username of the user pressing Ok')
 		}
 	}
-	    
-	    agent {
-        docker {
-          image 'maven:3.8.4'
-        }
-      }
-	   
+	 
             steps {
                 bat 'mvn install' 
             }
@@ -47,11 +41,9 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
     
     
 	
-	stage('push')
+	stage('Build_Image')
 	{
-		agent{
-			dockerfile true 
-		}
+		agent { dockerfile true }
 		steps{
 			
 			bat 'docker images'
