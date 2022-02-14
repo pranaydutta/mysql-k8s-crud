@@ -1,14 +1,21 @@
 pipeline {
     agent any
-    
-   stages {
-        stage('Example') {
+    stages{
+   stage ('Initialize') {
             steps {
-               bat '''
+                sh '''
                     echo "PATH = ${PATH}"
                     echo "M2_HOME = ${M2_HOME}"
                 '''
             }
         }
+    
+    stage ('Build') {
+            steps {
+                sh 'mvn install' 
+            }
     }
+    
+    }
+   }
 }
