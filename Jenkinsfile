@@ -1,24 +1,10 @@
 pipeline {
     agent any
     
-    tools { 
-        maven 'maven-3.8.4' 
-       
-    }
-   
-    stages {
-        stage ('Initialize') {
+   stages {
+        stage('Example') {
             steps {
-                sh '''
-                    echo "PATH = ${PATH}"
-                    echo "M2_HOME = ${M2_HOME}"
-                ''' 
-            }
-        }
-
-        stage ('Build') {
-            steps {
-                echo 'This is a minimal pipeline.'
+                echo 'Hello World'
             }
         }
     }
