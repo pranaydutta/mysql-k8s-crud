@@ -42,14 +42,11 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 	stage('push')
 	{
 		agent{
-			docker{
-				image 'gradle:6.7-jdk11'
-				reuseNode true
-			}
+			docker{ dockerfile true }
 		}
 		steps{
 			
-			bat 'gradle --version'
+			bat 'docker images'
 		}
 	}
 	    
