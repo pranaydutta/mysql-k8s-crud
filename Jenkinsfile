@@ -1,7 +1,7 @@
 def app
 pipeline {
     agent any
-	options { buildDiscarder(logRotator(numToKeepStr: '5')),
+	options { buildDiscarder(logRotator(numToKeepStr: '5'))
 		retry(3)
 		}
 	
