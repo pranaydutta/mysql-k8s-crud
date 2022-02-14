@@ -37,7 +37,7 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
         
          
     
-    }
+    
 	
 	stage('push')
 	{
@@ -52,6 +52,8 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 			bat 'gradle --version'
 		}
 	}
+	    
+    }
 	
 	post {
 always {
