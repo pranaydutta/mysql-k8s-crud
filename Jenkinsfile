@@ -2,10 +2,6 @@ currentBuild.displayName="demo-#"+currentBuild.number
 
 pipeline {
     agent any
-	environment
-	{	
-		COMMIT_ID = getDockerTag()
-	}
 	
 	options { buildDiscarder(logRotator(numToKeepStr: '5'))
 		//retry(1)
@@ -52,7 +48,8 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 		//agent { dockerfile true }
 		steps{
 			script{
-				COMMIT_ID=getDockerTag()
+				COMMIT_ID = getDockerTag()
+				echo "COMMIT_ID is : ${COMMIT_ID}"
 				bat 'docker build -t springboot-crud-k8s:${COMMIT_ID} .'
 			}
 		}
