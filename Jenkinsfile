@@ -90,5 +90,6 @@ always {
 
 def getDockerTag()
 {
-	return bat script: 'git rev-parse --verify HEAD', returnStdout: true
+	def tag  =  bat script: 'git rev-parse --verify HEAD', returnStdout: true
+	return tag
 }
