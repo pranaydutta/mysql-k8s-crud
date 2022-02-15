@@ -4,7 +4,7 @@ pipeline {
     agent any
 	environment
 	{	
-		DOCKER_TAG=getDockerTag()
+		DOCKER_TAG = getDockerTag()
 	}
 	
 	options { buildDiscarder(logRotator(numToKeepStr: '5'))
