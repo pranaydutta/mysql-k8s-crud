@@ -66,7 +66,7 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 				//  bat 'docker login -u ${hubuser} -p ${hubpwd}'
 				
 			//bat 'docker push pranay8032/springboot-crud-k8s:latest'
-}
+//}
 		    }
 			    
 }
