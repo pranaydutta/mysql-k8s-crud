@@ -87,7 +87,8 @@ always {
 	//bat ./performCleanUp.bat
 }
 }
-   
+  
+}
 
 
 def getDockerTag()
