@@ -18,28 +18,28 @@ pipeline{
 		stage('Build_Image') {
 
 			steps {
-				bat 'docker build -t pranay8032/springboot-crud-k8s:2.0 .'
+				sh 'docker build -t pranay8032/springboot-crud-k8s:2.0 .'
 			}
 		}
 
 		stage('Login') {
 
 			steps {
-				bat 'docker login -u pranay8032 -p pranay8032'
+				sh 'docker login -u pranay8032 -p pranay8032'
 			}
 		}
 
 		stage('Push') {
 
 			steps {
-				bat 'docker push pranay8032/springboot-crud-k8s:2.0'
+				sh 'docker push pranay8032/springboot-crud-k8s:2.0'
 			}
 		}
 	}
 
 	post {
 		always {
-			bat 'docker logout'
+			sh 'docker logout'
 		}
 	}
 
