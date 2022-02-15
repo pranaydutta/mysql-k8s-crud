@@ -90,7 +90,7 @@ always {
 
 def getDockerTag()
 {
-	def tag=bat script: 'git rev-parse HEAD', returnStdout: true
+	def tag = bat script: 'git rev-parse HEAD', returnStdout: true
 	echo "docker tag in getDockerTag: ${tag}"
 	return tag
 }
