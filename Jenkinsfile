@@ -4,7 +4,7 @@ pipeline {
     agent any
 	environment
 	{	
-		COMMIT_ID=$(git rev-parse --verify HEAD)
+		def COMMIT_ID=$(git rev-parse --verify HEAD)
 	}
 	
 	options { buildDiscarder(logRotator(numToKeepStr: '5'))
