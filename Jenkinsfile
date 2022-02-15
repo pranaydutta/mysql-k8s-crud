@@ -88,7 +88,7 @@ always {
 }
 }
    
-}
+
 
 def getDockerTag()
 {
