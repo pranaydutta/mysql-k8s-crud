@@ -4,7 +4,7 @@ pipeline {
     agent any
 	environment
 	{	
-		DOCKER_TAG = getDockerTag()
+		COMMIT_ID=$(git rev-parse --verify HEAD)
 	}
 	
 	options { buildDiscarder(logRotator(numToKeepStr: '5'))
@@ -53,7 +53,7 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 		steps{
 			script{
 				echo "docker tag is : ${DOCKER_TAG}"
-				bat 'docker build -t springboot-crud-k8s:${DOCKER_TAG} .'
+				bat 'docker build -t springboot-crud-k8s:${COMMIT_ID} .'
 			}
 		}
 	}
