@@ -2,6 +2,10 @@ currentBuild.displayName="demo-#"+currentBuild.number
 
 pipeline {
     agent any
+	environment
+	{	
+		def DOCKER_TAG=getDockerTag()
+	}
 	
 	options { buildDiscarder(logRotator(numToKeepStr: '5'))
 		//retry(1)
@@ -49,7 +53,7 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 		steps{
 			script{
 			
-			bat 'docker build -t springboot-crud-k8s:3.0 .'
+				bat 'docker build -t springboot-crud-k8s:${DOCKER_TAG} .'
 			}
 		}
 	}
@@ -82,4 +86,10 @@ always {
 }
 }
    
+}
+
+def getDockerTag()
+{
+	def tag=bat script : 'git rev-parse HEAD', returnStdout: true
+	return tag
 }
