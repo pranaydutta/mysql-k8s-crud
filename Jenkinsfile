@@ -1,3 +1,5 @@
+currentBuild.displayName="demo-#"+currentBuild.number
+
 pipeline {
     agent any
 	
