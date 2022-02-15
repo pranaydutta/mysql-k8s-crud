@@ -4,7 +4,7 @@ pipeline {
     agent any
 	environment
 	{	
-		COMMIT_ID=$('git rev-parse' --verify HEAD)
+		COMMIT_ID = getDockerTag()
 	}
 	
 	options { buildDiscarder(logRotator(numToKeepStr: '5'))
