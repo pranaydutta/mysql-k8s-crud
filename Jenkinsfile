@@ -52,7 +52,7 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 		//agent { dockerfile true }
 		steps{
 			script{
-				echo "docker tag is : ${COMMIT_ID}"
+				COMMIT_ID=getDockerTag()
 				bat 'docker build -t springboot-crud-k8s:${COMMIT_ID} .'
 			}
 		}
@@ -91,6 +91,4 @@ always {
 def getDockerTag()
 {
 	return bat script: 'git rev-parse --verify HEAD', returnStdout: true
-	
-	
 }
