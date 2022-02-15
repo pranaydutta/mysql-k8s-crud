@@ -48,12 +48,12 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 		//agent { dockerfile true }
 		steps{
 			script{
-				withEnv(['PATH+EXTRA=/usr/sbin:/usr/bin:/sbin:/bin']){
+				
 				COMMIT_ID = getDockerTag()
 				echo "COMMIT_ID is : ${COMMIT_ID}"
 				sh 'docker build -t springboot-crud-k8s:${COMMIT_ID} .'
 			}
-			}
+			
 		}
 	}
 	    
