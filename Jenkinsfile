@@ -71,7 +71,7 @@ string(name: 'USER', defaultValue: 'Muskan', description: 'A user that triggers 
 				  echo "Hub username : ${hubpwd}"
 				 sh 'docker login -u ${hubuser} -p ${hubpwd}'
 				
-			sh 'docker push pranay8032/springboot-crud-k8s:${COMMIT_ID}'
+			sh 'docker push pranay8032/springboot-crud-k8s:latest'
 }
 		    
 			    
